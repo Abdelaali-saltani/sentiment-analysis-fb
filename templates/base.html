@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sentiment Analysis{% endblock %}</title>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" data-aos="fade-down">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <i data-lucide="brain-circuit" class="logo-icon"></i>
+                <span class="logo-text">Sentiment<span class="highlight">AI</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/" class="nav-link {% if active_page == 'home' %}active{% endif %}">
+                        <i data-lucide="home" class="nav-icon"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/analytics" class="nav-link {% if active_page == 'analytics' %}active{% endif %}">
+                        <i data-lucide="bar-chart-3" class="nav-icon"></i> Analytics
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/analysis" class="nav-link {% if active_page == 'analysis' %}active{% endif %}">
+                        <i data-lucide="file-text" class="nav-icon"></i> NLP Analysis
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about" class="nav-link {% if active_page == 'about' %}active{% endif %}">
+                        <i data-lucide="info" class="nav-icon"></i> About
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Modern Footer -->
+    <footer class="modern-footer">
+        <!-- Main Footer Content -->
+        <div class="footer-main">
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <!-- About Section -->
+                    <div class="footer-section" data-aos="fade-up" data-aos-delay="100">
+                        <div class="footer-logo">
+                            <i data-lucide="brain-circuit" class="footer-logo-icon"></i>
+                            <h3 class="footer-logo-text">Sentiment<span class="highlight">AI</span></h3>
+                        </div>
+                        <p class="footer-description">
+                            Advanced sentiment analysis powered by machine learning. 
+                            Analyze text emotions with 98.14% accuracy using cutting-edge AI technology.
+                        </p>
+                        <div class="developer-info">
+                            <p class="dev-title">Developed by:</p>
+                            <div class="dev-names">
+                                <span class="dev-name">Abdelaali SALTANI</span>
+                                <span class="dev-separator">&</span>
+                                <span class="dev-name">Youssef ELMADANI</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-section" data-aos="fade-up" data-aos-delay="200">
+                        <h4 class="footer-title">Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="/" class="footer-link"><i data-lucide="home" class="link-icon"></i> Home</a></li>
+                            <li><a href="/analytics" class="footer-link"><i data-lucide="bar-chart-3" class="link-icon"></i> Analytics</a></li>
+                            <li><a href="/analysis" class="footer-link"><i data-lucide="file-text" class="link-icon"></i> NLP Analysis</a></li>
+                            <li><a href="/about" class="footer-link"><i data-lucide="info" class="link-icon"></i> About</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Features -->
+                    <div class="footer-section" data-aos="fade-up" data-aos-delay="300">
+                        <h4 class="footer-title">Features</h4>
+                        <ul class="footer-links">
+                            <li><a href="#" class="footer-link"><i data-lucide="zap" class="link-icon"></i> Real-time Analysis</a></li>
+                            <li><a href="#" class="footer-link"><i data-lucide="shield-check" class="link-icon"></i> 98.14% Accuracy</a></li>
+                            <li><a href="#" class="footer-link"><i data-lucide="layers" class="link-icon"></i> Batch Processing</a></li>
+                            <li><a href="#" class="footer-link"><i data-lucide="pie-chart" class="link-icon"></i> Visual Analytics</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Technology -->
+                    <div class="footer-section" data-aos="fade-up" data-aos-delay="400">
+                        <h4 class="footer-title">Technology Stack</h4>
+                        <div class="tech-badges">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Flask</span>
+                            <span class="tech-badge">scikit-learn</span>
+                            <span class="tech-badge">NumPy</span>
+                            <span class="tech-badge">Pandas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Initialize AOS animations
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100
+        });
+    </script>
+
+    <!-- Mobile Menu Toggle -->
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+    </script>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

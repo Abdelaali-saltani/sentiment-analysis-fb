@@ -1,0 +1,449 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Sentiment Analyzer{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero" data-aos="fade-down">
+    <div class="hero-content">
+        <div class="hero-icon-wrapper">
+            <i data-lucide="sparkles" class="hero-icon"></i>
+        </div>
+        <h1 class="hero-title">Analyze Sentiment in Seconds</h1>
+        <p class="hero-subtitle">Powered by Machine Learning • 98.14% Accuracy • 3-Class Classification</p>
+        <div class="hero-stats">
+            <div class="hero-stat" data-aos="fade-up" data-aos-delay="100">
+                <i data-lucide="database" class="hero-stat-icon"></i>
+                <span class="hero-stat-value">10K+</span>
+                <span class="hero-stat-label">Training Samples</span>
+            </div>
+            <div class="hero-stat" data-aos="fade-up" data-aos-delay="200">
+                <i data-lucide="target" class="hero-stat-icon"></i>
+                <span class="hero-stat-value">98%</span>
+                <span class="hero-stat-label">Accuracy</span>
+            </div>
+            <div class="hero-stat" data-aos="fade-up" data-aos-delay="300">
+                <i data-lucide="zap" class="hero-stat-icon"></i>
+                <span class="hero-stat-value">&lt;1s</span>
+                <span class="hero-stat-label">Response Time</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Analyzer Section -->
+<section class="analyzer-section" data-aos="fade-up" data-aos-delay="200">
+    <div class="analyzer-card">
+        <div class="card-header">
+            <div class="card-icon-wrapper">
+                <i data-lucide="message-square" class="card-icon"></i>
+            </div>
+            <h2>Enter Comments to Analyze</h2>
+        </div>
+        <p class="card-description">
+            Type one comment or multiple comments (one per line) to get instant sentiment predictions with confidence scores.
+        </p>
+        
+        <div class="input-wrapper">
+            <textarea 
+                id="commentInput" 
+                class="analyzer-input" 
+                placeholder="Example:
+I love this product! It's amazing!
+This is terrible quality, very disappointed.
+It's okay, nothing special really."
+                rows="6"
+            ></textarea>
+            
+            <div class="button-group">
+                <button id="analyzeBtn" class="btn btn-primary">
+                    <i data-lucide="search" class="btn-icon"></i> Analyze Sentiment
+                </button>
+                <button id="clearBtn" class="btn btn-secondary">
+                    <i data-lucide="trash-2" class="btn-icon"></i> Clear
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div id="loading" class="loading hidden">
+        <div class="loading-animation">
+            <div class="pulse-ring"></div>
+            <div class="pulse-ring"></div>
+            <div class="pulse-ring"></div>
+            <i data-lucide="brain" class="loading-icon"></i>
+        </div>
+        <p class="loading-text">Analyzing sentiment...</p>
+    </div>
+
+    <!-- Results Section -->
+    <section id="resultsSection" class="results-section hidden" data-aos="fade-up">
+        <div class="results-card">
+            <div class="card-header">
+                <div class="card-icon-wrapper">
+                    <i data-lucide="pie-chart" class="card-icon"></i>
+                </div>
+                <h2>Analysis Results</h2>
+            </div>
+            
+            <!-- Statistics Cards -->
+            <div id="statsContainer" class="stats-container hidden">
+                <h3 class="stats-title">Sentiment Distribution</h3>
+                <div class="stats-grid">
+                    <div class="stat-card positive" data-aos="flip-left" data-aos-delay="100">
+                        <div class="stat-icon-wrapper">
+                            <i data-lucide="smile" class="stat-icon"></i>
+                        </div>
+                        <div class="stat-label">Positive</div>
+                        <div id="positivePercent" class="stat-value">0%</div>
+                        <div id="positiveCount" class="stat-count">0 comments</div>
+                    </div>
+                    <div class="stat-card negative" data-aos="flip-left" data-aos-delay="200">
+                        <div class="stat-icon-wrapper">
+                            <i data-lucide="frown" class="stat-icon"></i>
+                        </div>
+                        <div class="stat-label">Negative</div>
+                        <div id="negativePercent" class="stat-value">0%</div>
+                        <div id="negativeCount" class="stat-count">0 comments</div>
+                    </div>
+                    <div class="stat-card neutral" data-aos="flip-left" data-aos-delay="300">
+                        <div class="stat-icon-wrapper">
+                            <i data-lucide="meh" class="stat-icon"></i>
+                        </div>
+                        <div class="stat-label">Neutral</div>
+                        <div id="neutralPercent" class="stat-value">0%</div>
+                        <div id="neutralCount" class="stat-count">0 comments</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Individual Results -->
+            <div id="resultsContainer" class="results-container">
+                <!-- Results will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+</section>
+
+<!-- Use Cases Section -->
+<section class="use-cases-section" data-aos="fade-up" data-aos-delay="300">
+    <div class="section-header">
+        <div class="section-icon-wrapper">
+            <i data-lucide="lightbulb" class="section-icon"></i>
+        </div>
+        <h2 class="section-title">Example Use Cases</h2>
+        <p class="section-subtitle">Discover how sentiment analysis can transform your business</p>
+    </div>
+    
+    <div class="use-cases-grid">
+        <div class="use-case-card" data-aos="slide-right" data-aos-delay="100">
+            <div class="use-case-icon-wrapper">
+                <i data-lucide="twitter" class="use-case-icon"></i>
+            </div>
+            <h3 class="use-case-title">Social Media Monitoring</h3>
+            <p class="use-case-description">Track brand sentiment across Twitter, Facebook, and Instagram in real-time to understand public perception.</p>
+        </div>
+        
+        <div class="use-case-card" data-aos="slide-up" data-aos-delay="200">
+            <div class="use-case-icon-wrapper">
+                <i data-lucide="message-circle" class="use-case-icon"></i>
+            </div>
+            <h3 class="use-case-title">Customer Feedback Analysis</h3>
+            <p class="use-case-description">Analyze support tickets, emails, and chat logs to identify customer satisfaction trends and urgent issues.</p>
+        </div>
+        
+        <div class="use-case-card" data-aos="slide-left" data-aos-delay="300">
+            <div class="use-case-icon-wrapper">
+                <i data-lucide="star" class="use-case-icon"></i>
+            </div>
+            <h3 class="use-case-title">Product Review Analysis</h3>
+            <p class="use-case-description">Understand user sentiment about products from Amazon, Yelp, and other review platforms to improve offerings.</p>
+        </div>
+        
+        <div class="use-case-card" data-aos="slide-right" data-aos-delay="400">
+            <div class="use-case-icon-wrapper">
+                <i data-lucide="bar-chart-3" class="use-case-icon"></i>
+            </div>
+            <h3 class="use-case-title">Market Research</h3>
+            <p class="use-case-description">Gauge public opinion on topics, brands, or products by analyzing news articles, blogs, and forums.</p>
+        </div>
+        
+        <div class="use-case-card" data-aos="slide-up" data-aos-delay="500">
+            <div class="use-case-icon-wrapper">
+                <i data-lucide="shield-check" class="use-case-icon"></i>
+            </div>
+            <h3 class="use-case-title">Content Moderation</h3>
+            <p class="use-case-description">Automatically filter inappropriate or harmful content from user-generated posts and comments.</p>
+        </div>
+        
+        <div class="use-case-card" data-aos="slide-left" data-aos-delay="600">
+            <div class="use-case-icon-wrapper">
+                <i data-lucide="clipboard-list" class="use-case-icon"></i>
+            </div>
+            <h3 class="use-case-title">Survey Analysis</h3>
+            <p class="use-case-description">Process large-scale survey responses quickly to identify trends, patterns, and areas for improvement.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Tutorial Section -->
+<section class="tutorial-section" data-aos="fade-up" data-aos-delay="400">
+    <div class="section-header">
+        <div class="section-icon-wrapper">
+            <i data-lucide="play-circle" class="section-icon"></i>
+        </div>
+        <h2 class="section-title">How to Analyze Sentiment</h2>
+        <p class="section-subtitle">Follow these simple steps to analyze text sentiment in seconds</p>
+    </div>
+    
+    <div class="tutorial-container">
+        <div class="tutorial-steps">
+            <div class="tutorial-step" data-aos="slide-right" data-aos-delay="100">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <div class="step-icon-wrapper">
+                        <i data-lucide="edit-3" class="step-icon"></i>
+                    </div>
+                    <h3 class="step-title">Enter Your Text</h3>
+                    <p class="step-description">Type or paste your comments, reviews, or any text you want to analyze into the input box above.</p>
+                </div>
+            </div>
+            
+            <div class="tutorial-step" data-aos="slide-up" data-aos-delay="200">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <div class="step-icon-wrapper">
+                        <i data-lucide="search" class="step-icon"></i>
+                    </div>
+                    <h3 class="step-title">Click Analyze</h3>
+                    <p class="step-description">Press the "Analyze Sentiment" button or use Ctrl+Enter to start the analysis process.</p>
+                </div>
+            </div>
+            
+            <div class="tutorial-step" data-aos="slide-left" data-aos-delay="300">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <div class="step-icon-wrapper">
+                        <i data-lucide="bar-chart-2" class="step-icon"></i>
+                    </div>
+                    <h3 class="step-title">View Results</h3>
+                    <p class="step-description">See instant sentiment predictions with confidence scores and highlighted sentiment words.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tutorial-demo" data-aos="zoom-in" data-aos-delay="400">
+            <div class="demo-card">
+                <div class="demo-header">
+                    <div class="demo-icon-wrapper" onclick="scrollToAnalyzer()" style="cursor: pointer;">
+                        <i data-lucide="sparkles" class="demo-icon"></i>
+                    </div>
+                    <h3 class="demo-title">Try It Now!</h3>
+                </div>
+                <div class="demo-content">
+                    <p class="demo-text">Enter some text above and click Analyze to see the magic happen!</p>
+                    <div class="demo-animation">
+                        <div class="demo-pulse"></div>
+                        <i data-lucide="arrow-up" class="demo-arrow"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Scroll to analyzer function
+    function scrollToAnalyzer() {
+        const analyzerSection = document.querySelector('.analyzer-section');
+        if (analyzerSection) {
+            analyzerSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // Focus on the input
+            setTimeout(() => {
+                commentInput.focus();
+            }, 500);
+        }
+    }
+    
+    // DOM Elements
+    const commentInput = document.getElementById('commentInput');
+    const analyzeBtn = document.getElementById('analyzeBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const loading = document.getElementById('loading');
+    const resultsSection = document.getElementById('resultsSection');
+    const resultsContainer = document.getElementById('resultsContainer');
+    const statsContainer = document.getElementById('statsContainer');
+
+    // Event Listeners
+    analyzeBtn.addEventListener('click', analyzeSentiment);
+    clearBtn.addEventListener('click', clearAll);
+    commentInput.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.key === 'Enter') {
+            analyzeSentiment();
+        }
+    });
+
+    // Clear function
+    function clearAll() {
+        commentInput.value = '';
+        resultsSection.classList.add('hidden');
+        statsContainer.classList.add('hidden');
+        resultsContainer.innerHTML = '';
+    }
+
+    // Analyze sentiment function
+    async function analyzeSentiment() {
+        const text = commentInput.value.trim();
+        
+        if (!text) {
+            alert('Please enter at least one comment to analyze.');
+            return;
+        }
+
+        // Show loading
+        loading.classList.remove('hidden');
+        resultsSection.classList.add('hidden');
+        analyzeBtn.disabled = true;
+
+        try {
+            const response = await fetch('/analyze', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ text: text })
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                displayResults(data);
+            } else {
+                alert('Error: ' + (data.error || 'Something went wrong'));
+            }
+        } catch (error) {
+            alert('Error connecting to server. Please make sure the server is running.');
+            console.error(error);
+        } finally {
+            loading.classList.add('hidden');
+            analyzeBtn.disabled = false;
+        }
+    }
+
+    // Display results function
+    function displayResults(data) {
+        resultsSection.classList.remove('hidden');
+        resultsContainer.innerHTML = '';
+
+        // Check if it's a single result or multiple
+        if (data.predictions) {
+            // Multiple comments
+            displayMultipleResults(data);
+        } else {
+            // Single comment
+            displaySingleResult(data);
+        }
+        
+        // Re-initialize Lucide icons for dynamically added content
+        lucide.createIcons();
+
+        // Scroll to results
+        resultsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Display single result
+    function displaySingleResult(result) {
+        statsContainer.classList.add('hidden');
+        
+        const resultCard = createResultCard(result);
+        resultsContainer.appendChild(resultCard);
+    }
+
+    // Display multiple results
+    function displayMultipleResults(data) {
+        const { predictions, statistics } = data;
+        
+        // Show statistics
+        statsContainer.classList.remove('hidden');
+        updateStatistics(statistics);
+
+        // Show individual results
+        predictions.forEach((result, index) => {
+            const resultCard = createResultCard(result, index + 1);
+            resultsContainer.appendChild(resultCard);
+        });
+    }
+
+    // Create result card HTML
+    function createResultCard(result, number = null) {
+        const card = document.createElement('div');
+        card.className = `result-card ${result.sentiment}`;
+
+        const sentimentIcons = {
+            'positive': 'smile',
+            'negative': 'frown',
+            'neutral': 'meh'
+        };
+
+        const numberBadge = number ? `<span class="result-number">#${number}</span>` : '';
+
+        // Use highlighted text if available, otherwise use original text
+        const displayText = result.highlighted_text || result.original_text;
+
+        card.innerHTML = `
+            ${numberBadge}
+            <div class="result-header">
+                <span class="sentiment-badge ${result.sentiment}">
+                    <i data-lucide="${sentimentIcons[result.sentiment]}" class="badge-icon"></i>
+                    ${result.sentiment.toUpperCase()}
+                </span>
+                <span class="confidence">
+                    <i data-lucide="gauge" class="confidence-icon"></i>
+                    ${result.confidence.toFixed(1)}%
+                </span>
+            </div>
+            <div class="result-text">
+                <p class="original-text">${displayText}</p>
+            </div>
+            <div class="confidence-bars">
+                ${Object.entries(result.all_confidences).map(([sentiment, conf]) => `
+                    <div class="confidence-row">
+                        <i data-lucide="${sentimentIcons[sentiment]}" class="conf-icon"></i>
+                        <span class="conf-label">${sentiment}:</span>
+                        <div class="conf-bar-container">
+                            <div class="conf-bar ${sentiment}" style="width: ${conf}%"></div>
+                        </div>
+                        <span class="conf-value">${conf.toFixed(1)}%</span>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+
+        return card;
+    }
+
+    // Update statistics
+    function updateStatistics(stats) {
+        const { counts, percentages, total } = stats;
+
+        document.getElementById('positivePercent').textContent = percentages.positive.toFixed(1) + '%';
+        document.getElementById('positiveCount').textContent = counts.positive + ' comments';
+
+        document.getElementById('negativePercent').textContent = percentages.negative.toFixed(1) + '%';
+        document.getElementById('negativeCount').textContent = counts.negative + ' comments';
+
+        document.getElementById('neutralPercent').textContent = percentages.neutral.toFixed(1) + '%';
+        document.getElementById('neutralCount').textContent = counts.neutral + ' comments';
+    }
+
+    // Escape HTML to prevent XSS
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+</script>
+{% endblock %}

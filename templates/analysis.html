@@ -1,0 +1,298 @@
+{% extends "base.html" %}
+
+{% block title %}NLP Analysis - Sentiment Analyzer{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero" data-aos="fade-down">
+    <div class="hero-content">
+        <div class="hero-icon-wrapper">
+            <i data-lucide="file-text" class="hero-icon"></i>
+        </div>
+        <h1 class="hero-title">NLP Analysis Dashboard</h1>
+        <p class="hero-subtitle">Advanced Text Analysis • Visualizations • Error Insights</p>
+        <div class="hero-stats">
+            <div class="hero-stat" data-aos="fade-up" data-aos-delay="100">
+                <i data-lucide="brain" class="hero-stat-icon"></i>
+                <span class="hero-stat-value">Advanced</span>
+                <span class="hero-stat-label">Preprocessing</span>
+            </div>
+            <div class="hero-stat" data-aos="fade-up" data-aos-delay="200">
+                <i data-lucide="bar-chart-2" class="hero-stat-icon"></i>
+                <span class="hero-stat-value">Visual</span>
+                <span class="hero-stat-label">Insights</span>
+            </div>
+            <div class="hero-stat" data-aos="fade-up" data-aos-delay="300">
+                <i data-lucide="search" class="hero-stat-icon"></i>
+                <span class="hero-stat-value">Deep</span>
+                <span class="hero-stat-label">Analysis</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Analysis Dashboard -->
+<section class="analyzer-section" data-aos="fade-up" data-aos-delay="200">
+    <div class="analysis-grid">
+        <!-- Word Clouds Section -->
+        <div class="analysis-card">
+            <div class="card-header">
+                <div class="card-icon-wrapper">
+                    <i data-lucide="cloud" class="card-icon"></i>
+                </div>
+                <h2>Sentiment Word Clouds</h2>
+            </div>
+            <p class="card-description">
+                Visual representation of most frequent words for each sentiment class.
+            </p>
+            <div class="word-clouds-container">
+                <div class="word-cloud-item">
+                    <h3>Positive</h3>
+                    <img src="/models/visualizations/wordcloud_positive.png" 
+                         alt="Positive Word Cloud" class="word-cloud-img" onerror="this.style.display='none'">
+                    <p class="placeholder-text" id="positive-placeholder">Word cloud not available</p>
+                </div>
+                <div class="word-cloud-item">
+                    <h3>Negative</h3>
+                    <img src="/models/visualizations/wordcloud_negative.png" 
+                         alt="Negative Word Cloud" class="word-cloud-img" onerror="this.style.display='none'">
+                    <p class="placeholder-text" id="negative-placeholder">Word cloud not available</p>
+                </div>
+                <div class="word-cloud-item">
+                    <h3>Neutral</h3>
+                    <img src="/models/visualizations/wordcloud_neutral.png" 
+                         alt="Neutral Word Cloud" class="word-cloud-img" onerror="this.style.display='none'">
+                    <p class="placeholder-text" id="neutral-placeholder">Word cloud not available</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Confusion Matrix Section -->
+        <div class="analysis-card">
+            <div class="card-header">
+                <div class="card-icon-wrapper">
+                    <i data-lucide="grid" class="card-icon"></i>
+                </div>
+                <h2>Confusion Matrix</h2>
+            </div>
+            <p class="card-description">
+                Visual representation of model predictions vs actual labels.
+            </p>
+            <div class="visualization-container">
+                <img src="/models/visualizations/confusion_matrix.png" 
+                     alt="Confusion Matrix" class="viz-img" onerror="this.style.display='none'">
+                <p class="placeholder-text" id="confusion-placeholder">Confusion matrix not available</p>
+            </div>
+        </div>
+
+        <!-- Feature Importance Section -->
+        <div class="analysis-card">
+            <div class="card-header">
+                <div class="card-icon-wrapper">
+                    <i data-lucide="bar-chart" class="card-icon"></i>
+                </div>
+                <h2>Feature Importance</h2>
+            </div>
+            <p class="card-description">
+                Most important features (words) for sentiment classification.
+            </p>
+            <div class="visualization-container">
+                <img src="/models/visualizations/feature_importance.png" 
+                     alt="Feature Importance" class="viz-img" onerror="this.style.display='none'">
+                <p class="placeholder-text" id="feature-placeholder">Feature importance not available</p>
+            </div>
+        </div>
+
+        <!-- Sentiment Distribution Section -->
+        <div class="analysis-card">
+            <div class="card-header">
+                <div class="card-icon-wrapper">
+                    <i data-lucide="pie-chart" class="card-icon"></i>
+                </div>
+                <h2>Sentiment Distribution</h2>
+            </div>
+            <p class="card-description">
+                Distribution of sentiment classes in the training dataset.
+            </p>
+            <div class="visualization-container">
+                <img src="/models/visualizations/sentiment_distribution.png" 
+                     alt="Sentiment Distribution" class="viz-img" onerror="this.style.display='none'">
+                <p class="placeholder-text" id="distribution-placeholder">Sentiment distribution not available</p>
+            </div>
+        </div>
+
+        <!-- Text Length Analysis Section -->
+        <div class="analysis-card">
+            <div class="card-header">
+                <div class="card-icon-wrapper">
+                    <i data-lucide="line-chart" class="card-icon"></i>
+                </div>
+                <h2>Text Length vs Sentiment</h2>
+            </div>
+            <p class="card-description">
+                Analysis of text length distribution across sentiment classes.
+            </p>
+            <div class="visualization-container">
+                <img src="/models/visualizations/text_length_vs_sentiment.png" 
+                     alt="Text Length Analysis" class="viz-img" onerror="this.style.display='none'">
+                <p class="placeholder-text" id="length-placeholder">Text length analysis not available</p>
+            </div>
+        </div>
+
+        <!-- Preprocessing Info Section -->
+        <div class="analysis-card">
+            <div class="card-header">
+                <div class="card-icon-wrapper">
+                    <i data-lucide="settings" class="card-icon"></i>
+                </div>
+                <h2>Preprocessing Pipeline</h2>
+            </div>
+            <p class="card-description">
+                Advanced NLP preprocessing techniques applied to the text data.
+            </p>
+            <div class="preprocessing-list">
+                <div class="preprocessing-item">
+                    <i data-lucide="check-circle" class="check-icon"></i>
+                    <span>Lemmatization (WordNet)</span>
+                </div>
+                <div class="preprocessing-item">
+                    <i data-lucide="check-circle" class="check-icon"></i>
+                    <span>Emoji Handling (text conversion)</span>
+                </div>
+                <div class="preprocessing-item">
+                    <i data-lucide="check-circle" class="check-icon"></i>
+                    <span>Slang Normalization</span>
+                </div>
+                <div class="preprocessing-item">
+                    <i data-lucide="check-circle" class="check-icon"></i>
+                    <span>Negation Detection</span>
+                </div>
+                <div class="preprocessing-item">
+                    <i data-lucide="check-circle" class="check-icon"></i>
+                    <span>URL Removal</span>
+                </div>
+                <div class="preprocessing-item">
+                    <i data-lucide="check-circle" class="check-icon"></i>
+                    <span>Punctuation Removal</span>
+                </div>
+                <div class="preprocessing-item">
+                    <i data-lucide="check-circle" class="check-icon"></i>
+                    <span>Stopword Removal</span>
+                </div>
+                <div class="preprocessing-item">
+                    <i data-lucide="check-circle" class="check-icon"></i>
+                    <span>N-gram Features (unigrams, bigrams)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.analysis-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.analysis-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.analysis-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.word-clouds-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.word-cloud-item {
+    text-align: center;
+}
+
+.word-cloud-item h3 {
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.word-cloud-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    max-height: 200px;
+    object-fit: contain;
+}
+
+.visualization-container {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.viz-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    max-height: 300px;
+    object-fit: contain;
+}
+
+.placeholder-text {
+    color: #999;
+    font-style: italic;
+    padding: 2rem;
+    display: none;
+}
+
+.preprocessing-list {
+    margin-top: 1rem;
+}
+
+.preprocessing-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.preprocessing-item:last-child {
+    border-bottom: none;
+}
+
+.check-icon {
+    color: #2ecc71;
+    margin-right: 0.75rem;
+    width: 20px;
+    height: 20px;
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Check if images loaded and show placeholders if not
+    document.querySelectorAll('.word-cloud-img, .viz-img').forEach(img => {
+        img.addEventListener('error', function() {
+            this.style.display = 'none';
+            const placeholder = this.nextElementSibling;
+            if (placeholder && placeholder.classList.contains('placeholder-text')) {
+                placeholder.style.display = 'block';
+            }
+        });
+    });
+</script>
+{% endblock %}

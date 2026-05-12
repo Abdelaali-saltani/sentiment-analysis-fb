@@ -1,0 +1,320 @@
+{
+  "total_samples": 2040,
+  "total_errors": 32,
+  "accuracy": 0.984313725490196,
+  "error_types": {
+    "positive_as_neutral": 3,
+    "positive_as_negative": 4,
+    "neutral_as_negative": 8,
+    "negative_as_neutral": 10,
+    "neutral_as_positive": 6,
+    "negative_as_positive": 1
+  },
+  "sentiment_errors": {
+    "positive": {
+      "total": 680,
+      "errors": 7,
+      "error_rate": 0.010294117647058823
+    },
+    "neutral": {
+      "total": 680,
+      "errors": 14,
+      "error_rate": 0.020588235294117647
+    },
+    "negative": {
+      "total": 680,
+      "errors": 11,
+      "error_rate": 0.016176470588235296
+    }
+  },
+  "errors": [
+    {
+      "index": 3,
+      "text": "never NOTbuying",
+      "true_label": "positive",
+      "predicted_label": "neutral",
+      "error_type": "positive_as_neutral",
+      "text_length": 15,
+      "word_count": 2
+    },
+    {
+      "index": 27,
+      "text": "funny cute kid",
+      "true_label": "positive",
+      "predicted_label": "negative",
+      "error_type": "positive_as_negative",
+      "text_length": 14,
+      "word_count": 3
+    },
+    {
+      "index": 45,
+      "text": "wife happy though work",
+      "true_label": "neutral",
+      "predicted_label": "negative",
+      "error_type": "neutral_as_negative",
+      "text_length": 22,
+      "word_count": 4
+    },
+    {
+      "index": 66,
+      "text": "broke us yet good enough overall",
+      "true_label": "negative",
+      "predicted_label": "neutral",
+      "error_type": "negative_as_neutral",
+      "text_length": 32,
+      "word_count": 6
+    },
+    {
+      "index": 214,
+      "text": "stopped working month though work",
+      "true_label": "negative",
+      "predicted_label": "neutral",
+      "error_type": "negative_as_neutral",
+      "text_length": 33,
+      "word_count": 5
+    },
+    {
+      "index": 221,
+      "text": "quality seems pretty solid acceptable fair",
+      "true_label": "negative",
+      "predicted_label": "neutral",
+      "error_type": "negative_as_neutral",
+      "text_length": 42,
+      "word_count": 6
+    },
+    {
+      "index": 401,
+      "text": "different really picture overall",
+      "true_label": "negative",
+      "predicted_label": "neutral",
+      "error_type": "negative_as_neutral",
+      "text_length": 32,
+      "word_count": 4
+    },
+    {
+      "index": 522,
+      "text": "expected honestly overall",
+      "true_label": "positive",
+      "predicted_label": "negative",
+      "error_type": "positive_as_negative",
+      "text_length": 25,
+      "word_count": 3
+    },
+    {
+      "index": 537,
+      "text": "middle road",
+      "true_label": "neutral",
+      "predicted_label": "negative",
+      "error_type": "neutral_as_negative",
+      "text_length": 11,
+      "word_count": 2
+    },
+    {
+      "index": 675,
+      "text": "missing part",
+      "true_label": "positive",
+      "predicted_label": "neutral",
+      "error_type": "positive_as_neutral",
+      "text_length": 12,
+      "word_count": 2
+    },
+    {
+      "index": 744,
+      "text": "sort decent quality product",
+      "true_label": "neutral",
+      "predicted_label": "positive",
+      "error_type": "neutral_as_positive",
+      "text_length": 27,
+      "word_count": 4
+    },
+    {
+      "index": 746,
+      "text": "wife quite happy",
+      "true_label": "neutral",
+      "predicted_label": "negative",
+      "error_type": "neutral_as_negative",
+      "text_length": 16,
+      "word_count": 3
+    },
+    {
+      "index": 811,
+      "text": "could better",
+      "true_label": "neutral",
+      "predicted_label": "positive",
+      "error_type": "neutral_as_positive",
+      "text_length": 12,
+      "word_count": 2
+    },
+    {
+      "index": 930,
+      "text": "order soon guess",
+      "true_label": "positive",
+      "predicted_label": "negative",
+      "error_type": "positive_as_negative",
+      "text_length": 16,
+      "word_count": 3
+    },
+    {
+      "index": 1018,
+      "text": "good value money",
+      "true_label": "neutral",
+      "predicted_label": "positive",
+      "error_type": "neutral_as_positive",
+      "text_length": 16,
+      "word_count": 3
+    },
+    {
+      "index": 1174,
+      "text": "middle sort road overall",
+      "true_label": "neutral",
+      "predicted_label": "positive",
+      "error_type": "neutral_as_positive",
+      "text_length": 24,
+      "word_count": 4
+    },
+    {
+      "index": 1185,
+      "text": "pleasantly surprised guess",
+      "true_label": "negative",
+      "predicted_label": "neutral",
+      "error_type": "negative_as_neutral",
+      "text_length": 26,
+      "word_count": 3
+    },
+    {
+      "index": 1302,
+      "text": "fine",
+      "true_label": "neutral",
+      "predicted_label": "negative",
+      "error_type": "neutral_as_negative",
+      "text_length": 4,
+      "word_count": 1
+    },
+    {
+      "index": 1324,
+      "text": "need time fair",
+      "true_label": "negative",
+      "predicted_label": "neutral",
+      "error_type": "negative_as_neutral",
+      "text_length": 14,
+      "word_count": 3
+    },
+    {
+      "index": 1398,
+      "text": "make life easier",
+      "true_label": "neutral",
+      "predicted_label": "negative",
+      "error_type": "neutral_as_negative",
+      "text_length": 16,
+      "word_count": 3
+    },
+    {
+      "index": 1435,
+      "text": "decent enough fair",
+      "true_label": "positive",
+      "predicted_label": "negative",
+      "error_type": "positive_as_negative",
+      "text_length": 18,
+      "word_count": 3
+    },
+    {
+      "index": 1447,
+      "text": "definitely second time buying fair",
+      "true_label": "neutral",
+      "predicted_label": "negative",
+      "error_type": "neutral_as_negative",
+      "text_length": 34,
+      "word_count": 5
+    },
+    {
+      "index": 1469,
+      "text": "stopped working month",
+      "true_label": "neutral",
+      "predicted_label": "positive",
+      "error_type": "neutral_as_positive",
+      "text_length": 21,
+      "word_count": 3
+    },
+    {
+      "index": 1541,
+      "text": "second time buying",
+      "true_label": "negative",
+      "predicted_label": "neutral",
+      "error_type": "negative_as_neutral",
+      "text_length": 18,
+      "word_count": 3
+    },
+    {
+      "index": 1547,
+      "text": "wife happy NOTgreat",
+      "true_label": "neutral",
+      "predicted_label": "negative",
+      "error_type": "neutral_as_negative",
+      "text_length": 19,
+      "word_count": 3
+    },
+    {
+      "index": 1588,
+      "text": "definitely great addition home",
+      "true_label": "negative",
+      "predicted_label": "positive",
+      "error_type": "negative_as_positive",
+      "text_length": 30,
+      "word_count": 4
+    },
+    {
+      "index": 1736,
+      "text": "ha good fairly bad guess",
+      "true_label": "negative",
+      "predicted_label": "neutral",
+      "error_type": "negative_as_neutral",
+      "text_length": 24,
+      "word_count": 5
+    },
+    {
+      "index": 1833,
+      "text": "basic functionality fair",
+      "true_label": "positive",
+      "predicted_label": "neutral",
+      "error_type": "positive_as_neutral",
+      "text_length": 24,
+      "word_count": 3
+    },
+    {
+      "index": 1857,
+      "text": "reliable sturdy overall",
+      "true_label": "neutral",
+      "predicted_label": "positive",
+      "error_type": "neutral_as_positive",
+      "text_length": 23,
+      "word_count": 3
+    },
+    {
+      "index": 1942,
+      "text": "function perfectly fair",
+      "true_label": "neutral",
+      "predicted_label": "negative",
+      "error_type": "neutral_as_negative",
+      "text_length": 23,
+      "word_count": 3
+    },
+    {
+      "index": 2028,
+      "text": "decent quality product fair",
+      "true_label": "negative",
+      "predicted_label": "neutral",
+      "error_type": "negative_as_neutral",
+      "text_length": 27,
+      "word_count": 4
+    },
+    {
+      "index": 2038,
+      "text": "kid absolutely love honestly",
+      "true_label": "negative",
+      "predicted_label": "neutral",
+      "error_type": "negative_as_neutral",
+      "text_length": 28,
+      "word_count": 4
+    }
+  ]
+}
