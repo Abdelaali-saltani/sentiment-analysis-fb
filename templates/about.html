@@ -128,59 +128,121 @@
 </section>
 
 <!-- Pipeline -->
-<section class="pipeline-section" data-aos="fade-up">
-    <h2 class="section-title">
-        <i data-lucide="repeat" class="section-title-icon"></i>
-        NLP Pipeline
-    </h2>
-    <div class="pipeline-steps">
-        <div class="step" data-aos="fade-up" data-aos-delay="100">
-            <div class="step-icon-wrapper">
-                <i data-lucide="text-cursor" class="step-icon"></i>
-            </div>
-            <div class="step-number">1</div>
-            <div class="step-content">
-                <h4>Text Preprocessing</h4>
-                <p>Lowercasing, URL removal, punctuation removal, stopword removal</p>
+<section class="pipeline-section-new" data-aos="fade-up">
+    <div class="pipeline-header-new">
+        <div class="pipeline-badge-new">
+            <i data-lucide="zap" class="badge-icon"></i>
+            <span>PROCESS</span>
+        </div>
+        <h2 class="pipeline-title-new">NLP Pipeline</h2>
+        <p class="pipeline-subtitle-new">From raw text to sentiment prediction in 4 powerful steps</p>
+    </div>
+    
+    <div class="pipeline-container-new">
+        <div class="pipeline-card-new" data-aos="zoom-in" data-aos-delay="100">
+            <div class="card-glow-new glow-1"></div>
+            <div class="card-inner-new">
+                <div class="step-indicator-new">
+                    <span class="step-number-new">01</span>
+                    <div class="step-line-new"></div>
+                </div>
+                <div class="card-icon-new icon-1">
+                    <i data-lucide="file-text" class="icon-svg"></i>
+                </div>
+                <h3 class="card-title-new">Text Preprocessing</h3>
+                <p class="card-desc-new">Clean and normalize raw text through lowercasing, URL removal, punctuation elimination, and stopword filtering</p>
+                <div class="card-tags-new">
+                    <span class="tag-new">Cleaning</span>
+                    <span class="tag-new">Normalization</span>
+                </div>
             </div>
         </div>
-        <div class="step-arrow">
-            <i data-lucide="arrow-right" class="arrow-icon"></i>
-        </div>
-        <div class="step" data-aos="fade-up" data-aos-delay="200">
-            <div class="step-icon-wrapper">
-                <i data-lucide="vector" class="step-icon"></i>
-            </div>
-            <div class="step-number">2</div>
-            <div class="step-content">
-                <h4>Feature Extraction</h4>
-                <p>TF-IDF vectorization with 5,000 max features</p>
-            </div>
-        </div>
-        <div class="step-arrow">
-            <i data-lucide="arrow-right" class="arrow-icon"></i>
-        </div>
-        <div class="step" data-aos="fade-up" data-aos-delay="300">
-            <div class="step-icon-wrapper">
-                <i data-lucide="git-branch" class="step-icon"></i>
-            </div>
-            <div class="step-number">3</div>
-            <div class="step-content">
-                <h4>Classification</h4>
-                <p>Logistic Regression predicts sentiment class</p>
+
+        <div class="pipeline-card-new" data-aos="zoom-in" data-aos-delay="200">
+            <div class="card-glow-new glow-2"></div>
+            <div class="card-inner-new">
+                <div class="step-indicator-new">
+                    <span class="step-number-new">02</span>
+                    <div class="step-line-new"></div>
+                </div>
+                <div class="card-icon-new icon-2">
+                    <i data-lucide="grid" class="icon-svg"></i>
+                </div>
+                <h3 class="card-title-new">Feature Extraction</h3>
+                <p class="card-desc-new">Transform text into numerical vectors using TF-IDF with 5,000 max features for optimal representation</p>
+                <div class="card-tags-new">
+                    <span class="tag-new">TF-IDF</span>
+                    <span class="tag-new">Vectorization</span>
+                </div>
             </div>
         </div>
-        <div class="step-arrow">
-            <i data-lucide="arrow-right" class="arrow-icon"></i>
-        </div>
-        <div class="step" data-aos="fade-up" data-aos-delay="400">
-            <div class="step-icon-wrapper">
-                <i data-lucide="check-circle" class="step-icon"></i>
+
+        <div class="pipeline-card-new" data-aos="zoom-in" data-aos-delay="300">
+            <div class="card-glow-new glow-3"></div>
+            <div class="card-inner-new">
+                <div class="step-indicator-new">
+                    <span class="step-number-new">03</span>
+                    <div class="step-line-new"></div>
+                </div>
+                <div class="card-icon-new icon-3">
+                    <i data-lucide="brain" class="icon-svg"></i>
+                </div>
+                <h3 class="card-title-new">Classification</h3>
+                <p class="card-desc-new">Apply Logistic Regression model to predict sentiment class with high accuracy and reliability</p>
+                <div class="card-tags-new">
+                    <span class="tag-new">ML Model</span>
+                    <span class="tag-new">Prediction</span>
+                </div>
             </div>
-            <div class="step-number">4</div>
-            <div class="step-content">
-                <h4>Results</h4>
-                <p>Sentiment label with confidence scores</p>
+        </div>
+
+        <div class="pipeline-card-new" data-aos="zoom-in" data-aos-delay="400">
+            <div class="card-glow-new glow-4"></div>
+            <div class="card-inner-new">
+                <div class="step-indicator-new">
+                    <span class="step-number-new">04</span>
+                </div>
+                <div class="card-icon-new icon-4">
+                    <i data-lucide="chart-bar" class="icon-svg"></i>
+                </div>
+                <h3 class="card-title-new">Results Output</h3>
+                <p class="card-desc-new">Generate sentiment labels with confidence scores for informed decision-making and analysis</p>
+                <div class="card-tags-new">
+                    <span class="tag-new">Confidence</span>
+                    <span class="tag-new">Analysis</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pipeline-stats-new" data-aos="fade-up" data-aos-delay="500">
+        <div class="stat-item-new">
+            <div class="stat-icon-new">
+                <i data-lucide="clock"></i>
+            </div>
+            <div class="stat-info-new">
+                <span class="stat-value-new">&lt;1s</span>
+                <span class="stat-label-new">Processing Time</span>
+            </div>
+        </div>
+        <div class="stat-divider-new"></div>
+        <div class="stat-item-new">
+            <div class="stat-icon-new">
+                <i data-lucide="target"></i>
+            </div>
+            <div class="stat-info-new">
+                <span class="stat-value-new">98.14%</span>
+                <span class="stat-label-new">Accuracy</span>
+            </div>
+        </div>
+        <div class="stat-divider-new"></div>
+        <div class="stat-item-new">
+            <div class="stat-icon-new">
+                <i data-lucide="layers"></i>
+            </div>
+            <div class="stat-info-new">
+                <span class="stat-value-new">5K</span>
+                <span class="stat-label-new">Features</span>
             </div>
         </div>
     </div>
